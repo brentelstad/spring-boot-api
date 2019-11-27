@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  tomcat:
+    image: tomcat:9.0.27-jdk8-corretto
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/api-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/ROOT.war
+      - ./target/api-0.0.1-SNAPSHOT:/usr/local/tomcat/webapps/ROOT
+#      - "./jrebel/jrebel.jar:/jrebel.jar"
+#      - "./jrebel/lib/libjrebel64.so:/libjrebel64.so"
+#      - "./target/petclinic.war:/usr/local/tomcat/webapps/petclinic.war"
+#      - "~/.jrebel:/.jrebel"
+#    environment:
+#      - "JAVA_OPTS=-agentpath:/libjrebel64.so -Drebel.remoting_plugin=true"
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dev
+    ports:
+      - "5432:5432"
