@@ -8,12 +8,10 @@ services:
     volumes:
       - ./target/api-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/ROOT.war
       - ./target/api-0.0.1-SNAPSHOT:/usr/local/tomcat/webapps/ROOT
-#      - "./jrebel/jrebel.jar:/jrebel.jar"
-#      - "./jrebel/lib/libjrebel64.so:/libjrebel64.so"
-#      - "./target/petclinic.war:/usr/local/tomcat/webapps/petclinic.war"
-#      - "~/.jrebel:/.jrebel"
-#    environment:
-#      - "JAVA_OPTS=-agentpath:/libjrebel64.so -Drebel.remoting_plugin=true"
+      - ./jrebel/jrebel.jar:/jrebel.jar
+      - ./jrebel/lib/libjrebel64.so:/lib/libjrebel64.so
+    environment:
+      - JAVA_OPTS=-agentpath:/lib/libjrebel64.so -Drebel.remoting_plugin=true -Drebel.log.file=/jrebel.log
   postgres:
     image: postgres:12
     restart: always

@@ -69,7 +69,6 @@
 				<version>3.8.0</version>
 				<configuration>
 					<propertyFile>liquibase/liquibase.properties</propertyFile>
-<!--					<changeLogFile>liquibase/changelog/master_changelog.xml</changeLogFile>-->
 				</configuration>
 			</plugin>
 		</plugins>

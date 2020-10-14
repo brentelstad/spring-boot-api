@@ -6,5 +6,5 @@
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
 >
 
-    <includeAll path="classpath:liquibase/changelog/2019-11/"/>
+    <includeAll path="classpath:liquibase/changelog/2020-10-13"/>
 </databaseChangeLog>
